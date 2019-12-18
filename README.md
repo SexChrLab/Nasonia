@@ -37,7 +37,7 @@ If you use Nasonia in a classroom or discuss/correct this work in a manuscript, 
 
 
 
-### publicly available tools used in this analysis
+### Publicly available tools used in this analysis
 Tool | usage | citation
 --- | --- |  ---
 Trimmomatic | Trim RNA-sequences for quality | Bolger AM, Lohse M, Usadel B. Trimmomatic: a flexible trimmer for Illumina sequence data. Bioinformatics. 2014;30: 2114–2120.
