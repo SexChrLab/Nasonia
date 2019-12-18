@@ -7,7 +7,7 @@ Parent and species of origin allele specific and differential expression analysi
 ## Preprint
 Please see our preprint for more information:
 
-*Lack of parent-of-origin effects in Nasonia jewel wasp - a replication and reproduction study* 2019. Olney KC; Natri HA; Underwood A; Gibson J; Gadau J; Wilson MA.  
+*Lack of parent-of-origin effects in Nasonia jewel wasp - a replication and reproduction study* 2019. Olney KC; Natri H; Underwood A; Gibson J; Gadau J; Wilson MA.  
 
 If you use Nasonia in a classroom or discuss/correct this work in a manuscript, please cite this preprint.
 
@@ -17,3 +17,26 @@ If you use Nasonia in a classroom or discuss/correct this work in a manuscript, 
 2. Differential expression - Differential expression for all pairwise comparisons 
 
 3. Allele specific expression - Identify genes with species or parent-of-origin effects
+
+### 1. Process data
+
+### 2. Differential exprssion
+
+### 3. Allele specific expression 
+
+### publicly available tools used in this analysis
+Tool | usage | citation
+--- | --- |  ---
+Trimmomatic | Trim RNA-sequences for quality | Bolger AM, Lohse M, Usadel B. Trimmomatic: a flexible trimmer for Illumina sequence data. Bioinformatics. 2014;30: 2114–2120.
+HISAT | RNAseq read aligner | Kim D, Langmead B, Salzberg SL. HISAT: a fast spliced aligner with low memory requirements. Nat Methods. 2015;12: 357–360.
+bamtools | analyzing and processing BAM files | Barnett DW, Garrison EK, Quinlan AR, Strömberg MP, Marth GT. BamTools: a C++ API and toolkit for analyzing and managing BAM files. Bioinformatics. 2011;27: 1691–1692.
+FeatureCounts | obtain raw transcriptome counts| Liao Y, Smyth GK, Shi W. featureCounts: an efficient general purpose program for assigning sequence reads to genomic features. Bioinformatics. 2014;30: 923–930.
+Limma/voom | differenital expression analysis | Law CW, Chen Y, Shi W, Smyth GK. voom: Precision weights unlock linear model analysis tools for RNA-seq read counts. Genome Biol. 2014;15: R29.
+
+
+## Group Members
+Name | email | github ID
+--- | --- |  ---
+Kimberly Olney | olneykimberly@gmail.com | @olneykimberly
+Heini Natri | heini.natri@gmail.com |@heinin
+Melissa A. Wilson | melissa.wilsonsayres@asu.edu | @mwilsonsayres
