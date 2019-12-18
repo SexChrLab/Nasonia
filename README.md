@@ -18,11 +18,24 @@ If you use Nasonia in a classroom or discuss/correct this work in a manuscript, 
 
 3. Allele specific expression - Identify genes with species or parent-of-origin effects
 
+
+
 ### 1. Process data
+
+
+
 
 ### 2. Differential exprssion
 
+
+
+
+
 ### 3. Allele specific expression 
+
+
+
+
 
 ### publicly available tools used in this analysis
 Tool | usage | citation
