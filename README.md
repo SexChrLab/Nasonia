@@ -7,7 +7,7 @@ Parent and species of origin allele specific and differential expression analysi
 ## Preprint
 Please see our preprint for more information:
 
-*Lack of parent-of-origin effects in Nasonia jewel wasp - a replication and reproduction study* 2019. Olney KC; Natri H; Underwood A; Gibson J; Gadau J; Wilson MA.  
+*Lack of parent-of-origin effects in Nasonia jewel wasp - a replication and reproduction study* 2020. Olney KC; Natri H; Underwood A; Gibson J; Gadau J; Wilson MA.  
 
 If you use Nasonia in a classroom or discuss/correct this work in a manuscript, please cite this preprint.
 
