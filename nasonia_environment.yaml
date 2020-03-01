@@ -1,0 +1,18 @@
+name: nasonia_environment
+channels:
+  - defaults
+  - bioconda
+  - conda-forge
+  - cyclus
+dependencies:
+  - python=3.5.1
+  - samtools=1.4
+  - snakemake=3.11.0
+  - pyyaml=3.11
+  - fastqc=0.11.
+  - multiqc=1.0
+  - trimmomatic=0.36
+  - hisat2=2.1.0
+  - subread=1.5.2
+  - gatk4=4.0.3.0
+  - picard=2.18.1
