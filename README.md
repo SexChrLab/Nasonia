@@ -22,19 +22,17 @@ If you use Nasonia in a classroom or discuss/correct this work in a manuscript, 
 
 ### 1. Process data
 
-The Wilson and Clark data were processed on a HPC cluster using SLURM and snakemake. To create a conda environment with the tools used in data processing, install conda (e.g. Miniconda) and run "[TODO]".
+The Wilson and Clark data were processed on a HPC cluster using SLURM and snakemake. To create a conda environment with the tools used in data processing, install conda (e.g. Miniconda) and run "conda env create -f nasonia_environment.yaml".
 
-Processing steps:
-
-QC and read trimming with FastQC, MultiQC, and Trimmomatic
+###### QC and read trimming with FastQC, MultiQC, and Trimmomatic
 
 The quality of the FASTQ files was assessed using FastQC and MultiQC. Reads were trimmed for quality and post-trimming quality was assesses again. To run these steps, use the script run_fastqc_trimmomatic.sh and the snakefile fastqc_trimmomatic.snakefile.
 
-Read mapping and gene expression quantification
+###### Read mapping and gene expression quantification
 
 The Nasonia vitripennis reference genome and gene annotation file were downloaded from NCBI (https://www.ncbi.nlm.nih.gov/genome/449?genome_assembly_id=716919). Trimmed reads were mapped to the reference with HISAT2. The HISAT2 index was created using the script build_hisat_index.sh. Gene level counts were quantified using featureCounts. To start the snakemake pipeline for read mapping and gene expression quantification, run run_mapping_quantification_snakemake.sh. !!!!
 
-BAM processing, variant calling, and ASE quantification
+###### BAM processing, variant calling, and ASE quantification
 
 BAM files were processed for variant calling using picard. To run the processing, use the script run_bam_processing.sh and the snakefile process_bam.snakefile. Variants were called using GATK HaplotypeCaller. Allele-specific expression levels were quantified using GATK ASEReadCounter. To run these steps, use the scripts run_gatk_haplotypecaller_asereadcounter.sh and gatk_haplotypecaller_asereadcounter.snakefile.
 
