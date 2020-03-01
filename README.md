@@ -9,7 +9,7 @@ Please see our preprint for more information:
 
 *Lack of parent-of-origin effects in Nasonia jewel wasp - a replication and reproduction study* 2020. Olney KC*; Natri HM*; Underwood A; Gibson J; Gadau J; Wilson MA.  
 
-* indicates equal contribution.
+\* indicates equal contribution.
 
 If you use Nasonia in a classroom or discuss/correct this work in a manuscript, please cite this preprint.
 
