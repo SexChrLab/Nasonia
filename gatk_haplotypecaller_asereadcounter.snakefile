@@ -4,8 +4,8 @@ configfile: "Nasonia.config.json"
 
 # Reference files: reference genome sequences in FASTA format abd an index .fa.fai
 # files created with Samtools faidx.
-REF = config["Giraulti_ref_path"]
-REF_FA_INDEX = config["Giraulti_ref_index_path"] # Reference FASTA index file (.fa.fai)
+REF = config["Vitripennis_ref_index_path"]
+REF_FA_INDEX = config["Vitripennis_ref_index_path"] # Reference FASTA index file (.fa.fai)
 
 # Directories
 Sayres_RNA_SORTED_BAM_AL_DIR = config["Sayres_RNA_processed_BAM"]
@@ -37,20 +37,20 @@ GATK_GVCF_LIST_str = " ".join(GATK_GVCF_LIST)
 # Output files
 rule all:
 	input:
-		expand(Sayres_RNA_gVCF + "{sample}_rawLikehoods_VgirRef.g.vcf", Sayres_RNA_gVCF=Sayres_RNA_gVCF, sample=SAYRES_SAMPLES),
-		expand(Clark_RNA_gVCF + "{sample}_rawLikehoods_VgirRef.g.vcf", Clark_RNA_gVCF=Clark_RNA_gVCF, sample=CLARK_RNA_SAMPLES),
-		expand(Clark_exome_gVCF + "{sample}_rawLikehoods_VgirRef.g.vcf", Clark_exome_gVCF=Clark_exome_gVCF, sample=CLARK_EXOME_SAMPLES),
-		VCF_DIR + "SAYRES_CLARK_all_gVCFs_VgirRef.g.vcf",
-		VCF_DIR + "SAYRES_CLARK_all_genotypes_VgirRef.vcf",
-		expand(SAYRES_ASE_DIR + "{sample}_ASEReadCounter_minDepth100_VgirRef.csv", SAYRES_ASE_DIR=SAYRES_ASE_DIR, sample=SAYRES_SAMPLES),
-		expand(CLARK_ASE_DIR + "{sample}_ASEReadCounter_minDepth100_VgirRef.csv", CLARK_ASE_DIR=CLARK_ASE_DIR, sample=CLARK_RNA_SAMPLES),
+		expand(Sayres_RNA_gVCF + "{sample}_rawLikehoods.g.vcf", Sayres_RNA_gVCF=Sayres_RNA_gVCF, sample=SAYRES_SAMPLES),
+		expand(Clark_RNA_gVCF + "{sample}_rawLikehoods.g.vcf", Clark_RNA_gVCF=Clark_RNA_gVCF, sample=CLARK_RNA_SAMPLES),
+		expand(Clark_exome_gVCF + "{sample}_rawLikehoods.g.vcf", Clark_exome_gVCF=Clark_exome_gVCF, sample=CLARK_EXOME_SAMPLES),
+		VCF_DIR + "SAYRES_CLARK_all_gVCFs.g.vcf",
+		VCF_DIR + "SAYRES_CLARK_all_genotypes.vcf",
+		expand(SAYRES_ASE_DIR + "{sample}_ASEReadCounter_minDepth100.csv", SAYRES_ASE_DIR=SAYRES_ASE_DIR, sample=SAYRES_SAMPLES),
+		expand(CLARK_ASE_DIR + "{sample}_ASEReadCounter_minDepth100.csv", CLARK_ASE_DIR=CLARK_ASE_DIR, sample=CLARK_RNA_SAMPLES),
 
 rule sayres_gatk_haplotypecaller_gvcf:
 	input:
-		BAM = lambda wildcards: Sayres_RNA_SORTED_BAM_AL_DIR + wildcards.sample + "_sortedbycoord_wRGs_mkDups_VgirRef.bam",
+		BAM = lambda wildcards: Sayres_RNA_SORTED_BAM_AL_DIR + wildcards.sample + "_sortedbycoord_wRGs_mkDups.bam",
 		REF = REF
 	output:
-		VCF = Sayres_RNA_gVCF + "{sample}_rawLikehoods_VgirRef.g.vcf"
+		VCF = Sayres_RNA_gVCF + "{sample}_rawLikehoods.g.vcf"
 	params:
 		xmx = "48g",
 		xms = "48g",
@@ -88,10 +88,10 @@ rule sayres_gatk_haplotypecaller_gvcf:
 
 rule clark_exome_gatk_haplotypecaller_gvcf:
 	input:
-		BAM = lambda wildcards: Clark_exome_SORTED_BAM_AL_DIR + wildcards.sample + "_sortedbycoord_wRGs_mkDups_VgirRef.bam",
+		BAM = lambda wildcards: Clark_exome_SORTED_BAM_AL_DIR + wildcards.sample + "_sortedbycoord_wRGs_mkDups.bam",
 		REF = REF
 	output:
-		VCF = Clark_exome_gVCF + "{sample}_rawLikehoods_VgirRef.g.vcf"
+		VCF = Clark_exome_gVCF + "{sample}_rawLikehoods.g.vcf"
 	params:
 		xmx = "48g",
 		xms = "48g",
@@ -129,10 +129,10 @@ rule clark_exome_gatk_haplotypecaller_gvcf:
 
 rule clark_rna_gatk_haplotypecaller_gvcf:
 	input:
-		BAM = lambda wildcards: Clark_RNA_SORTED_BAM_AL_DIR + wildcards.sample + "_sortedbycoord_wRGs_mkDups_VgirRef.bam",
+		BAM = lambda wildcards: Clark_RNA_SORTED_BAM_AL_DIR + wildcards.sample + "_sortedbycoord_wRGs_mkDups.bam",
 		REF = REF
 	output:
-		VCF = Clark_RNA_gVCF + "{sample}_rawLikehoods_VgirRef.g.vcf"
+		VCF = Clark_RNA_gVCF + "{sample}_rawLikehoods.g.vcf"
 	params:
 		xmx = "48g",
 		xms = "48g",
@@ -172,7 +172,7 @@ rule all_samples_merge_gvcfs:
 	input:
 		REF = REF
 	output:
-		VCF = os.path.join(VCF_DIR, "SAYRES_CLARK_all_gVCFs_VgirRef.g.vcf")
+		VCF = os.path.join(VCF_DIR, "SAYRES_CLARK_all_gVCFs.g.vcf")
 	params:
 		GVCF_LIST = GATK_GVCF_LIST_str,
 		xmx = "62g",
@@ -191,9 +191,9 @@ rule all_samples_merge_gvcfs:
 rule all_samples_gatk_genotype_gvcfs:
 	input:
 		REF = REF,
-		VCF = os.path.join(VCF_DIR, "SAYRES_CLARK_all_gVCFs_VgirRef.g.vcf")
+		VCF = os.path.join(VCF_DIR, "SAYRES_CLARK_all_gVCFs.g.vcf")
 	output:
-		VCF = os.path.join(VCF_DIR, "SAYRES_CLARK_all_genotypes_VgirRef.vcf")
+		VCF = os.path.join(VCF_DIR, "SAYRES_CLARK_all_genotypes.vcf")
 	params:
 		#GVCF_LIST = GATK_GVCF_LIST_str,
 		xmx = "62g",
@@ -223,10 +223,10 @@ rule all_samples_gatk_genotype_gvcfs:
 rule sayres_asereadcounter_gvcfs:
 	input:
 		REF = REF,
-		BAM = lambda wildcards: Sayres_RNA_SORTED_BAM_AL_DIR + wildcards.sample + "_sortedbycoord_wRGs_mkDups_VgirRef.bam",
-		VCF = os.path.join(VCF_DIR, "SAYRES_CLARK_all_genotypes_VgirRef.vcf")
+		BAM = lambda wildcards: Sayres_RNA_SORTED_BAM_AL_DIR + wildcards.sample + "_sortedbycoord_wRGs_mkDups.bam",
+		VCF = os.path.join(VCF_DIR, "SAYRES_CLARK_all_genotypes.vcf")
 	output:
-		ASE = os.path.join(SAYRES_ASE_DIR, "{sample}_ASEReadCounter_minDepth100_VgirRef.csv")
+		ASE = os.path.join(SAYRES_ASE_DIR, "{sample}_ASEReadCounter_minDepth100.csv")
 	params:
 		xmx = "62g",
 		xms = "62g",
@@ -253,10 +253,10 @@ rule sayres_asereadcounter_gvcfs:
 rule clark_asereadcounter_gvcfs:
 	input:
 		REF = REF,
-		BAM = lambda wildcards: Clark_RNA_SORTED_BAM_AL_DIR + wildcards.sample + "_sortedbycoord_wRGs_mkDups_VgirRef.bam",
-		VCF = os.path.join(VCF_DIR, "SAYRES_CLARK_all_genotypes_VgirRef.vcf")
+		BAM = lambda wildcards: Clark_RNA_SORTED_BAM_AL_DIR + wildcards.sample + "_sortedbycoord_wRGs_mkDups.bam",
+		VCF = os.path.join(VCF_DIR, "SAYRES_CLARK_all_genotypes.vcf")
 	output:
-		ASE = os.path.join(CLARK_ASE_DIR, "{sample}_ASEReadCounter_minDepth100_VgirRef.csv")
+		ASE = os.path.join(CLARK_ASE_DIR, "{sample}_ASEReadCounter_minDepth100.csv")
 	params:
 		xmx = "62g",
 		xms = "62g",
