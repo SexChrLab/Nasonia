@@ -32,7 +32,17 @@ The quality of the FASTQ files was assessed using FastQC and MultiQC. Reads were
 
 ###### Read mapping and gene expression quantification
 
-The Nasonia vitripennis reference genome and gene annotation file were downloaded from NCBI (https://www.ncbi.nlm.nih.gov/genome/449?genome_assembly_id=716919). Trimmed reads were mapped to the reference with HISAT2. The HISAT2 index was created using the script build_hisat_index.sh. Gene level counts were quantified using featureCounts. To start the snakemake pipeline for read mapping and gene expression quantification, run run_mapping_quantification_snakemake.sh.
+The Nasonia vitripennis reference genome and gene annotation file were downloaded from NCBI (https://www.ncbi.nlm.nih.gov/genome/449?genome_assembly_id=716919). FASTA index file and a sequence dictionary file must be present in the reference directory. These files can be produces with samtools and Picard:
+
+```
+samtools faidx GCF_009193385.1_Nvit_psr_1_genomic.fa
+```
+
+```
+picard CreateSequenceDictionary R=GCF_009193385.1_Nvit_psr_1_genomic.fa O=GCF_009193385.1_Nvit_psr_1_genomic.dict
+```
+
+Trimmed reads were mapped to the reference with HISAT2. The HISAT2 index was created using the script build_hisat_index.sh. Gene level counts were quantified using featureCounts. To start the snakemake pipeline for read mapping and gene expression quantification, run run_mapping_quantification_snakemake.sh.
 
 ###### BAM processing, variant calling, and ASE quantification
 
