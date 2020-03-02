@@ -2,7 +2,7 @@
     "Vitripennis_ref_path": "/data/storage/SAYRES/NASONIA/Heini/Reference/GCF_009193385.1_Nvit_psr_1_genomic.fa",
     "Vitripennis_ref_index_path": "/data/storage/SAYRES/NASONIA/Heini/Reference/GCF_009193385.1_Nvit_psr_1_genomic.fa.fai",
     "Vitripennis_HISAT2_index": "/data/storage/SAYRES/NASONIA/Heini/Reference/HISAT2_index/Vitripennis_HISAT2_index",
-    "Vitripennis_GFF": "/data/storage/SAYRES/NASONIA/Reference/GCF_009193385.1_Nvit_psr_1_genomic.gff",
+    "Vitripennis_GFF": "/data/storage/SAYRES/NASONIA/Heini/Reference/GCF_009193385.1_Nvit_psr_1_genomic.gff",
     "Giraulti_ref_path": "/data/storage/SAYRES/NASONIA/Heini/Reference/NASONIA_gir_reference/NASONIA_gir_reference.fna",
     "Giraulti_ref_index_path": "/data/storage/SAYRES/NASONIA/Heini/Reference/NASONIA_gir_reference/NASONIA_gir_reference.fna.fai",
     "Giraulti_HISAT2_index": "/data/storage/SAYRES/NASONIA/Heini/Reference/Giraulti_HISAT2_index/Custom_Giraulti_HISAT2_index",
