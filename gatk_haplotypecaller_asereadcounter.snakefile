@@ -4,7 +4,7 @@ configfile: "Nasonia.config.json"
 
 # Reference files: reference genome sequences in FASTA format abd an index .fa.fai
 # files created with Samtools faidx.
-REF = config["Vitripennis_ref_index_path"]
+REF = config["Vitripennis_ref_path"]
 REF_FA_INDEX = config["Vitripennis_ref_index_path"] # Reference FASTA index file (.fa.fai)
 
 # Directories
