@@ -27,7 +27,7 @@ CLARK_EXOME_SAMPLES = config["CLARK_EXOME_SAMPLES"]
 
 # Formatting strings for command line
 GATK_GVCF_LIST = []
-ALL_GVCFS = config["ALL_gir_gVCF_paths"]
+ALL_GVCFS = config["ALL_gVCF_paths"]
 for item in ALL_GVCFS:
 	gvcf_list_item = "--variant " + item
 	GATK_GVCF_LIST.append(gvcf_list_item)
