@@ -42,8 +42,8 @@ rule all:
 		expand(Clark_exome_gVCF + "{sample}_rawLikehoods.g.vcf", Clark_exome_gVCF=Clark_exome_gVCF, sample=CLARK_EXOME_SAMPLES),
 		VCF_DIR + "SAYRES_CLARK_all_gVCFs.g.vcf",
 		VCF_DIR + "SAYRES_CLARK_all_genotypes.vcf",
-		expand(SAYRES_ASE_DIR + "{sample}_ASEReadCounter_minDepth100.csv", SAYRES_ASE_DIR=SAYRES_ASE_DIR, sample=SAYRES_SAMPLES),
-		expand(CLARK_ASE_DIR + "{sample}_ASEReadCounter_minDepth100.csv", CLARK_ASE_DIR=CLARK_ASE_DIR, sample=CLARK_RNA_SAMPLES),
+		expand(SAYRES_ASE_DIR + "{sample}_ASEReadCounter_minDepth30.csv", SAYRES_ASE_DIR=SAYRES_ASE_DIR, sample=SAYRES_SAMPLES),
+		expand(CLARK_ASE_DIR + "{sample}_ASEReadCounter_minDepth30.csv", CLARK_ASE_DIR=CLARK_ASE_DIR, sample=CLARK_RNA_SAMPLES),
 
 rule sayres_gatk_haplotypecaller_gvcf:
 	input:
@@ -226,12 +226,12 @@ rule sayres_asereadcounter_gvcfs:
 		BAM = lambda wildcards: Sayres_RNA_SORTED_BAM_AL_DIR + wildcards.sample + "_sortedbycoord_wRGs_mkDups.bam",
 		VCF = os.path.join(VCF_DIR, "SAYRES_CLARK_all_genotypes.vcf")
 	output:
-		ASE = os.path.join(SAYRES_ASE_DIR, "{sample}_ASEReadCounter_minDepth100.csv")
+		ASE = os.path.join(SAYRES_ASE_DIR, "{sample}_ASEReadCounter_minDepth30.csv")
 	params:
 		xmx = "62g",
 		xms = "62g",
 		threads = "24",
-		minDepth=100, 
+		minDepth=30, 
 		minMappingQuality=10,
 		minBaseQuality=2
 	message: "Running ASEReadCounter."
@@ -256,12 +256,12 @@ rule clark_asereadcounter_gvcfs:
 		BAM = lambda wildcards: Clark_RNA_SORTED_BAM_AL_DIR + wildcards.sample + "_sortedbycoord_wRGs_mkDups.bam",
 		VCF = os.path.join(VCF_DIR, "SAYRES_CLARK_all_genotypes.vcf")
 	output:
-		ASE = os.path.join(CLARK_ASE_DIR, "{sample}_ASEReadCounter_minDepth100.csv")
+		ASE = os.path.join(CLARK_ASE_DIR, "{sample}_ASEReadCounter_minDepth30.csv")
 	params:
 		xmx = "62g",
 		xms = "62g",
 		threads = "24",
-		minDepth=100, 
+		minDepth=30, 
 		minMappingQuality=10,
 		minBaseQuality=2
 	message: "Running ASEReadCounter."
