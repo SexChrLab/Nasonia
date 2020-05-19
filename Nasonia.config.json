@@ -1,10 +1,11 @@
 {
-    "Vitripennis_ref_path": "/data/storage/SAYRES/NASONIA/Heini/Reference/GCF_009193385.1_Nvit_psr_1_genomic.fa",
-    "Vitripennis_ref_index_path": "/data/storage/SAYRES/NASONIA/Heini/Reference/GCF_009193385.1_Nvit_psr_1_genomic.fa.fai",
+    "Vitripennis_ref_path": "/data/storage/SAYRES/NASONIA/Heini/Reference/GCF_009193385.2_Nvit_psr_1.1_genomic.fna",
+    "Vitripennis_ref_index_path": "/data/storage/SAYRES/NASONIA/Heini/Reference/GCF_009193385.2_Nvit_psr_1.1_genomic.fna.fai",
+    "Vitripennis_ref_dict_path": "/data/storage/SAYRES/NASONIA/Heini/Reference/GCF_009193385.2_Nvit_psr_1.1_genomic.dict",
     "Vitripennis_HISAT2_index": "/data/storage/SAYRES/NASONIA/Heini/Reference/HISAT2_index/Vitripennis_HISAT2_index",
-    "Vitripennis_GFF": "/data/storage/SAYRES/NASONIA/Heini/Reference/GCF_009193385.1_Nvit_psr_1_genomic.gff",
-    "Giraulti_ref_path": "/data/storage/SAYRES/NASONIA/Heini/Reference/NASONIA_gir_reference/NASONIA_gir_reference.fna",
-    "Giraulti_ref_index_path": "/data/storage/SAYRES/NASONIA/Heini/Reference/NASONIA_gir_reference/NASONIA_gir_reference.fna.fai",
+    "Vitripennis_GFF": "/data/storage/SAYRES/NASONIA/Heini/Reference/GCF_009193385.2_Nvit_psr_1.1_genomic.gff",
+    "Giraulti_ref_path": "/mnt/storage/SAYRES/NASONIA/Heini/Reference/GCF_009193385.2_pseudoNgir_psr_1.1_genomic.fa",
+    "Giraulti_ref_index_path": "/mnt/storage/SAYRES/NASONIA/Heini/Reference/GCF_009193385.2_pseudoNgir_psr_1.1_genomic.fa.fai",
     "Giraulti_HISAT2_index": "/data/storage/SAYRES/NASONIA/Heini/Reference/Giraulti_HISAT2_index/Custom_Giraulti_HISAT2_index",
 
     "Sayres_RNA_raw_FASTQ": "/data/storage/SAYRES/NASONIA/orginal_fastq/",
