@@ -104,10 +104,10 @@ p1 <- ggplot(data = meanlogCPM, aes(x = WilsonGG, y = ClarkGG )) +
         axis.text.x=element_text(size=10)) +
   theme(axis.title.y=element_text(size=12),
         axis.text.y=element_text(size=10)) +
-  scale_x_continuous(breaks=c(-5,0,5,10,15)) +
-  scale_y_continuous(breaks=c(-5,0,5,10,15)) +
+  scale_x_continuous(breaks=c(-5,0,5,10,15), limits = c(-5, 15)) +
+  scale_y_continuous(breaks=c(-5,0,5,10,15), limits = c(-5, 15)) +
   geom_smooth(data = meanlogCPM, aes(x = WilsonGG, y = ClarkGG), method='lm',formula=y~x, color="black") +
-  annotate(geom="text", x=-1, y=13, label=label, color="black")
+  annotate(geom="text", x=1, y=14, label=label, color="black")
 
 p1
 
@@ -126,10 +126,10 @@ p2 <- ggplot(data = meanlogCPM, aes(x = WilsonVV, y = ClarkVV )) +
         axis.text.x=element_text(size=10)) +
   theme(axis.title.y=element_text(size=12),
         axis.text.y=element_text(size=10)) +
-  scale_x_continuous(breaks=c(-5,0,5,10,15)) +
-  scale_y_continuous(breaks=c(-5,0,5,10,15)) +
+  scale_x_continuous(breaks=c(-5,0,5,10,15), limits = c(-5, 15)) +
+  scale_y_continuous(breaks=c(-5,0,5,10,15), limits = c(-5, 15)) +
   geom_smooth(data = meanlogCPM, aes(x = WilsonVV, y = ClarkVV), method='lm',formula=y~x, color="black") +
-  annotate(geom="text", x=-1, y=13, label=label, color="black")
+  annotate(geom="text", x=1, y=14, label=label, color="black")
 
 p2
 
@@ -148,10 +148,10 @@ p3 <- ggplot(data = meanlogCPM, aes(x = WilsonGV, y = ClarkGV )) +
         axis.text.x=element_text(size=10)) +
   theme(axis.title.y=element_text(size=12),
         axis.text.y=element_text(size=10)) +
-  scale_x_continuous(breaks=c(-5,0,5,10,15)) +
-  scale_y_continuous(breaks=c(-5,0,5,10,15)) +
+  scale_x_continuous(breaks=c(-5,0,5,10,15), limits = c(-5, 15)) +
+  scale_y_continuous(breaks=c(-5,0,5,10,15), limits = c(-5, 15)) +
   geom_smooth(data = meanlogCPM, aes(x = WilsonGV, y = ClarkGV), method='lm',formula=y~x, color="black") +
-  annotate(geom="text", x=-1, y=13, label=label, color="black")
+  annotate(geom="text", x=1, y=14, label=label, color="black")
 
 p3
 
@@ -170,10 +170,10 @@ p4 <- ggplot(data = meanlogCPM, aes(x = WilsonVG, y = ClarkVG )) +
         axis.text.x=element_text(size=10)) +
   theme(axis.title.y=element_text(size=12),
         axis.text.y=element_text(size=10)) +
-  scale_x_continuous(breaks=c(-5,0,5,10,15)) +
-  scale_y_continuous(breaks=c(-5,0,5,10,15)) +
+  scale_x_continuous(breaks=c(-5,0,5,10,15), limits = c(-5, 15)) +
+  scale_y_continuous(breaks=c(-5,0,5,10,15), limits = c(-5, 15)) +
   geom_smooth(data = meanlogCPM, aes(x = WilsonVG, y = ClarkVG), method='lm',formula=y~x, color="black") +
-  annotate(geom="text", x=-1, y=13, label=label, color="black")
+  annotate(geom="text", x=1, y=14, label=label, color="black")
 
 p4
 
@@ -193,10 +193,10 @@ p5 <- ggplot(data = meanlogCPM, aes(x = WilsonVV, y = WilsonGG )) +
         axis.text.x=element_text(size=10)) +
   theme(axis.title.y=element_text(size=12),
         axis.text.y=element_text(size=10)) +
-  scale_x_continuous(breaks=c(-5,0,5,10,15)) +
-  scale_y_continuous(breaks=c(-5,0,5,10,15)) +
+  scale_x_continuous(breaks=c(-5,0,5,10,15), limits = c(-5, 15)) +
+  scale_y_continuous(breaks=c(-5,0,5,10,15), limits = c(-5, 15)) +
   geom_smooth(data = meanlogCPM, aes(x = WilsonVV, y = WilsonGG), method='lm',formula=y~x, color="black") +
-  annotate(geom="text", x=-1, y=13, label=label, color="black")
+  annotate(geom="text", x=1, y=14, label=label, color="black")
 
 p5
 
@@ -215,10 +215,10 @@ p6 <- ggplot(data = meanlogCPM, aes(x = ClarkVV, y = ClarkGG )) +
         axis.text.x=element_text(size=10)) +
   theme(axis.title.y=element_text(size=12),
         axis.text.y=element_text(size=10)) +
-  scale_x_continuous(breaks=c(-5,0,5,10,15)) +
-  scale_y_continuous(breaks=c(-5,0,5,10,15)) +
+  scale_x_continuous(breaks=c(-5,0,5,10,15), limits = c(-5, 15)) +
+  scale_y_continuous(breaks=c(-5,0,5,10,15), limits = c(-5, 15)) +
   geom_smooth(data = meanlogCPM, aes(x = ClarkVV, y = ClarkGG), method='lm',formula=y~x, color="black") +
-  annotate(geom="text", x=-1, y=13, label=label, color="black")
+  annotate(geom="text", x=1, y=14, label=label, color="black")
 
 p6
 
@@ -226,3 +226,4 @@ p6
 ggsave("Clark_Sayres_regression.pdf", 
        grid.arrange(p1, p2, p3, p4, p5, p6, ncol=2, widths=c(3, 3)),
        width = 6, height = 9)
+
