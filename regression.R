@@ -235,7 +235,7 @@ p6
 
 # Saving to a file
 ggsave("Clark_Sayres_regression.pdf", 
-       grid.arrange(p1, p2, p3, p4, p5, p6, ncol=2, widths=c(5, 5)),
-       width = 10, height = 15)
+       grid.arrange(p1, p2, p3, p4, p5, p6, ncol=2, widths=c(3, 3)),
+       width = 6, height = 9)
 
 
