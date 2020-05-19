@@ -5,7 +5,6 @@
 # ==============================================================================
 
 # Load libraries
-
 library(RColorBrewer)
 library(edgeR)
 library(ggplot2)
@@ -13,6 +12,7 @@ library(ggExtra)
 library(grid)
 library(gridExtra)
 
+# Setting the working directory
 setwd("/Users/hnatri/Dropbox (ASU)/Nasonia/")
 
 # Defining colors
@@ -35,7 +35,6 @@ colnames(bothCounts) <- gsub("\\/data\\/storage\\/SAYRES\\/NASONIA\\/Heini\\/Pro
 colnames(bothCounts) <- gsub("\\/data\\/storage\\/SAYRES\\/NASONIA\\/Heini\\/Processing\\/Sayres\\/RNA\\/processed_BAM\\/", "", colnames(bothCounts))
 colnames(bothCounts) <- gsub("\\_sortedbycoord\\.bam", "", colnames(bothCounts))
 
-
 metadata <- read.csv("metadata.csv")
 metadata <- metadata[match(colnames(bothCounts),
                            metadata$SampleID),]
@@ -45,7 +44,6 @@ metadata$Dataset_Cross <- paste(metadata$Dataset, metadata$Cross, sep="_")
 genes <- read.table("014451_featurecounts.tsv", header=TRUE, sep="\t")
 genes <- data.frame(genes)
 genes <- genes[,colnames(genes) %in% c("Geneid", "Chr", "Start", "End", "Strand", "Length")]
-
 
 # Vectors of samples in each group
 WilsonVV <- as.vector(metadata[metadata$Dataset_Cross == "Wilson_VV" , ]$SampleID)
@@ -57,7 +55,7 @@ ClarkGG <- as.vector(metadata[metadata$Dataset_Cross == "Clark_GG" , ]$SampleID)
 ClarkVG <- as.vector(metadata[metadata$Dataset_Cross == "Clark_VG" , ]$SampleID)
 ClarkGG <- as.vector(metadata[metadata$Dataset_Cross == "Clark_GV" , ]$SampleID)
 
-# Calculating mean FPKM for each group of samples in the Wilson and Clark datasets
+# Calculating mean logCPM for each group of samples in the Wilson and Clark datasets
 dge <- DGEList(counts=bothCounts, genes=genes)
 colnames(dge) <- colnames(bothCounts)
 dge$samples$Dataset_Cross <- metadata$Dataset_Cross
@@ -113,7 +111,6 @@ p1 <- ggplot(data = meanlogCPM, aes(x = WilsonGG, y = ClarkGG )) +
 
 p1
 
-
 # Plotting the Wilson and Clark mean expression values for VV samples
 # Calculating R2
 p2_r2 <- cor(meanlogCPM$WilsonVV, meanlogCPM$ClarkVV,  method = "pearson", use = "complete.obs")
@@ -134,9 +131,7 @@ p2 <- ggplot(data = meanlogCPM, aes(x = WilsonVV, y = ClarkVV )) +
   geom_smooth(data = meanlogCPM, aes(x = WilsonVV, y = ClarkVV), method='lm',formula=y~x, color="black") +
   annotate(geom="text", x=-1, y=13, label=label, color="black")
 
-
 p2
-
 
 # Plotting the Wilson and Clark mean expression values for GV samples
 # Calculating R2
@@ -160,8 +155,6 @@ p3 <- ggplot(data = meanlogCPM, aes(x = WilsonGV, y = ClarkGV )) +
 
 p3
 
-
-
 # Plotting the Wilson and Clark mean expression values for VG samples
 # Calculating R2
 p4_r2 <- cor(meanlogCPM$WilsonVG, meanlogCPM$ClarkVG,  method = "pearson", use = "complete.obs")
@@ -184,9 +177,8 @@ p4 <- ggplot(data = meanlogCPM, aes(x = WilsonVG, y = ClarkVG )) +
 
 p4
 
-
-
 # Between species
+# Wilson VV and GG
 # Calculating R2
 p5_r2 <- cor(meanlogCPM$WilsonVV, meanlogCPM$WilsonGG,  method = "pearson", use = "complete.obs")
 label <- paste('R-squared', "=", format(round(p5_r2, 2), nsmall = 2), sep="")
@@ -208,9 +200,7 @@ p5 <- ggplot(data = meanlogCPM, aes(x = WilsonVV, y = WilsonGG )) +
 
 p5
 
-
-
-
+# Clark VV and GG
 # Calculating R2
 p6_r2 <- cor(meanlogCPM$ClarkVV, meanlogCPM$ClarkGG,  method = "pearson", use = "complete.obs")
 label <- paste('R-squared', "=", format(round(p6_r2, 2), nsmall = 2), sep="")
@@ -232,10 +222,7 @@ p6 <- ggplot(data = meanlogCPM, aes(x = ClarkVV, y = ClarkGG )) +
 
 p6
 
-
 # Saving to a file
 ggsave("Clark_Sayres_regression.pdf", 
        grid.arrange(p1, p2, p3, p4, p5, p6, ncol=2, widths=c(3, 3)),
        width = 6, height = 9)
-
-
