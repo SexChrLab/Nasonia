@@ -32,7 +32,7 @@ The quality of the FASTQ files was assessed using FastQC and MultiQC. Reads were
 
 ###### Read mapping and gene expression quantification
 
-The Nasonia vitripennis reference genome and gene annotation file were downloaded from NCBI (https://www.ncbi.nlm.nih.gov/genome/449?genome_assembly_id=716919). FASTA index file and a sequence dictionary file must be present in the reference directory. These files can be produces with samtools and Picard:
+The Nasonia vitripennis reference genome and gene annotation file were downloaded from NCBI (https://www.ncbi.nlm.nih.gov/genome/449?genome_assembly_id=716919). FASTA index file and a sequence dictionary file must be present in the reference directory. These files can be produced with samtools and Picard:
 
 ```
 samtools faidx GCF_009193385.1_Nvit_psr_1_genomic.fa
@@ -51,17 +51,21 @@ BAM files were processed for variant calling using picard. To run the processing
 Read mapping and all downstream processing steps were repeated with the custom generated N. giraulti reference genome.
 
 
-### 2. Differential expression analysis
+### 2. Fixed differences, pseudo N.giraulti reference genome
+
+
+### 3. Differential expression analysis
+
+Gene quanitification from  featureCounts for each dataset was put into a matrix and then read into into R for calling differential expression between species. Differential expression was preformed using limma/voom. 
+
+To run these steps, use the scripts getCounts_Clark.sh and getCounts_Wilson.sh for when the samples were aligned to the N.vit references genome and run the scripts getCounts_Clark_VgirRef.sh and getCounts_Wilson_VgirRef.sh for when the samples were aligned to the pseudo N.gir references genome. 
+
+### 4. Allele specific expression analysis
 
 
 
 
-
-### 3. Allele specific expression analysis
-
-
-
-
+These tools are publicly available and we ask that if you use this workflow to cite the tools used listed in the table below.
 
 ### Publicly available tools used in this analysis
 Tool | usage | citation
