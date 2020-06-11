@@ -11,7 +11,7 @@ newgrp combinedlab
 
 source activate nasonia_environment
 
-cd /Processing/Clark/RNA/featureCounts
+cd /Processing/Sayres/RNA/featureCounts
 
 cut -f7 014444_featurecounts_VgirRef.tsv  | sed 1d > tmp1
 cut -f7 014445_featurecounts_VgirRef.tsv  | sed 1d > tmp2
