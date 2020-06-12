@@ -100,9 +100,6 @@ keep <- (VV_mean_fpkm > 0.5 | GG_mean_fpkm > 0.5 |
 
 dge <- dge[keep, , keep.lib.sizes = FALSE]
 dge <- calcNormFactors(dge, method = "TMM")
-keep <- rowSums(dge$counts > 6) >= 2
-dge <- dge[keep, , keep.lib.size = FALSE]
-dge <- calcNormFactors(dge, method = "TMM")
 
 # N of genes retained after filtering
 dim(dge$genes)
