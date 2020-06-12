@@ -76,11 +76,9 @@ http://rpubs.com/olneykimberly/626815 or /Plotting/Nasonia_Wilson_data.pdf and /
 
 ### 4. Allele specific expression analysis
 
-For each sample, allele-specific expression (ASE) analysis was done on the reads aligned to the N. vitripennis reference, and on the reads aligned to the pseudo N. giraulti reference for comparison. Counts of reads covering biallelic heterozygous SNP sites were obtained with ASEReadCounter in GATK version 3.8 (Castel et al. 2015). Parameters ensuring adequate coverage with a minimum mapping quality of 10, minimum base quality of 2, and a minimum depth of 30 were used. Only sites with a fixed difference between inbred VV and GG for both Clark and Wilson datasets were used for downstream analysis of allele-specific expression.
+For each sample, allele-specific expression (ASE) analysis was done on the reads aligned to the N. vitripennis reference, and on the reads aligned to the pseudo N. giraulti. The avaregae allele count for each site between the reference genomes was computed and used for downstream ASE. Counts of reads covering biallelic heterozygous SNP sites were obtained with ASEReadCounter in GATK version 3.8 (Castel et al. 2015). Parameters ensuring adequate coverage with a minimum mapping quality of 10, minimum base quality of 2, and a minimum depth of 30 were used. Only sites with a fixed difference between inbred VV and GG for both Clark and Wilson datasets were used for downstream analysis of allele-specific expression.
 
-To get ASE run first 
-
-ASE_AvgREFs.r
+To get allele counts run run_ASEReadCounter_filters_snakemake.sh and run_ASEReadCounter_filters_VgirRef_snakemake.sh. To determine which genes show ASE run the r script ASE_AvgREFs.r
 
 <p align="center">
   <img src="https://github.com/SexChrLab/Nasonia/blob/master/Plotting/Figure4.png" width="900"/>
