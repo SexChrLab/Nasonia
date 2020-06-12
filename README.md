@@ -58,7 +58,14 @@ Read mapping and all downstream processing steps were repeated with the custom g
 
 Gene quanitification from  featureCounts for each dataset was put into a matrix and then read into into R for calling differential expression between species. Differential expression was preformed using limma/voom. 
 
-To run these steps, use the scripts getCounts_Clark.sh and getCounts_Wilson.sh for when the samples were aligned to the N.vit references genome and run the scripts getCounts_Clark_VgirRef.sh and getCounts_Wilson_VgirRef.sh for when the samples were aligned to the pseudo N.gir references genome. 
+To run these steps, use the scripts getCounts_Clark.sh and getCounts_Wilson.sh for when the samples were aligned to the N.vit references genome and run the scripts getCounts_Clark_VgirRef.sh and getCounts_Wilson_VgirRef.sh for when the samples were aligned to the pseudo N.gir references genome. This will create the count matrix needed to run differential expression. 
+
+To run differntial expression, use the scripts 
+
+For an R markdown of the differntial expression results visit: 
+http://rpubs.com/olneykimberly/626815 
+
+
 
 ### 4. Allele specific expression analysis
 
