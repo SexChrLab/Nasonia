@@ -60,9 +60,7 @@ Read mapping and all downstream processing steps were repeated with the custom g
 
 We created a custom Nasonia giraulti reference genome by substituting sites with fixed allele differences between the two inbred species with the N. giraulti allele using GATK’s FastaAlternateReferenceMaker (McKenna et al. 2010). A site was considered to be fixed and different if it was homozygous for the N. vitripennis reference allele among all three of the biological VV samples and homozygous alternate among all three of the biological GG samples. All samples were aligned to both the N.vit and the pseudo N.gir reference genomes as described in step 1. 
 
-To make a pseudo N.giraulti reference genome you first need to have called variants when samples were aligned to the N.vit reference genome Step 1. Then you can run the script run_fixedDifferences.sh which will call a set of python scripts for identifying sits that are fixed and different between VV and GG. 
-
-
+To make a pseudo N.giraulti reference genome you first need to have called variants when samples were aligned to the N.vit reference genome from step 1. Then you can run the script run_fixedDifferences.sh which will call a set of python scripts for identifying sits that are fixed and different between VV and GG. After this step has finished, there will be a text file in the FixedDifferences folder that contian the fixed sites infomation, Sayres_Clark_intersect.txt. Now run the script run_FastaAlternateReference.sh which will then make the pseudo N.giraulti reference genome with fixed differences information contained in the Sayres_Clark_intersect.txt file. Re-process the samples as described in step 1 using the new pseudo N.giraulti reference genome for alignment. 
 
 ### 3. Differential expression analysis
 
@@ -70,13 +68,10 @@ Gene quanitification from  featureCounts for each dataset was put into a matrix 
 
 To run these steps, use the scripts getCounts_Clark.sh and getCounts_Wilson.sh for when the samples were aligned to the N.vit references genome and run the scripts getCounts_Clark_VgirRef.sh and getCounts_Wilson_VgirRef.sh for when the samples were aligned to the pseudo N.gir references genome. This will create the count matrix needed to run differential expression. 
 
-To run differntial expression, use the scripts 
+To run differntial expression, use the scripts: Wilson_AvgREFs_limmaVoom.r and Clark_AvgREFs_limmaVoom.r  
 
 For an R markdown of the differntial expression results visit: 
-http://rpubs.com/olneykimberly/626815 
-
-
-
+http://rpubs.com/olneykimberly/626815 or /Plotting/Nasonia_Wilson_data.pdf and /Plotting/Nasonia_Clark_data.pdf
 
 
 ### 4. Allele specific expression analysis
@@ -84,9 +79,11 @@ http://rpubs.com/olneykimberly/626815
 
 
 
-These tools are publicly available and we ask that if you use this workflow to cite the tools used listed in the table below.
 
 ### Publicly available tools used in this analysis
+
+These tools are publicly available and we ask that if you use this workflow to cite the tools used listed in the table below.
+
 Tool | usage | citation
 --- | --- |  ---
 Trimmomatic | Trim RNA-sequences for quality | Bolger AM, Lohse M, Usadel B. Trimmomatic: a flexible trimmer for Illumina sequence data. Bioinformatics. 2014;30: 2114–2120.
