@@ -60,6 +60,9 @@ Read mapping and all downstream processing steps were repeated with the custom g
 ### 2. Fixed differences, pseudo N.giraulti reference genome
 
 
+
+
+
 ### 3. Differential expression analysis
 
 Gene quanitification from  featureCounts for each dataset was put into a matrix and then read into into R for calling differential expression between species. Differential expression was preformed using limma/voom. 
@@ -70,6 +73,8 @@ To run differntial expression, use the scripts
 
 For an R markdown of the differntial expression results visit: 
 http://rpubs.com/olneykimberly/626815 
+
+
 
 
 
