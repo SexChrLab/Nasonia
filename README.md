@@ -5,7 +5,7 @@ Lack of parent-of-origin effects in Nasonia jewel wasp - a replication and repro
 Parent and species of origin allele specific and differential expression analysis workflow. A replication and reproduction study using RNA and DNA from Nasonia jewel wasp a haplodiploidy species. In diploid cells, the paternal and maternal alleles are on average equally expressed. There are exceptions from this is which a small number of genes express exclusively the maternal or paternal allele copy, known as genomic imprinting. Clark et al. 2016 found no parent-of-origin effects in the hybrids of closely related Nasonia vitripennis and N. giuralti jewel wasp, suggesting a lack of epigenetic reprogramming during embryogenesis in these species. Here, we have reproduced and replicated these findings using the previously published RNA & DNA sequence data from 11 samples as well as a newly generated RNA data from 12 samples of the same species hybrids. Our results from both datasets demonstrated a species-of-origin effect.
 
 <p align="center">
-  <img src="https://github.com/SexChrLab/Nasonia/blob/master/Plotting/Figure1.png" width="900"/>
+  <img src="https://github.com/SexChrLab/Nasonia/blob/master/Plotting/Figure1.png" width="500"/>
 </p>
 
 Figure 1. A) A schematic illustration of the reciprocal F1 crosses. B) Overview of the data processing and analysis workflow.
@@ -81,7 +81,7 @@ For each sample, allele-specific expression (ASE) analysis was done on the reads
 ASE_AvgREFs.r
 
 <p align="center">
-  <img src="https://github.com/SexChrLab/Nasonia/blob/master/Plotting/Figure4.png" width="500"/>
+  <img src="https://github.com/SexChrLab/Nasonia/blob/master/Plotting/Figure4.png" width="900"/>
 </p>
 
 Figure 4. Scatterplots of the expression of the N. vitripennis alleles in the two reciprocal hybrids, VG (x-axis) and GV (y-axis), in the Clark (A) and Wilson (B) datasets. Genes with at least two informative SNPs with a min depth of 30 were used (Clark = 6,377, Wilson  = 7,164). Genes exhibiting a significant difference in allelic bias between the hybrids (Fisher’s exact test, FDR-adj. p<0.01) are highlighted in red. Paternally imprinted genes are expected to appear in the upper left corner (light blue box), and maternally imprinted genes in the lower right corner (light pink box). Histograms of the N. vitripennis allele expression are shown for VG (blue) and GV (pink). 
