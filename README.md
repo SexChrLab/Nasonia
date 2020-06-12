@@ -92,8 +92,8 @@ HISAT | RNAseq read aligner | Kim D, Langmead B, Salzberg SL. HISAT: a fast spli
 bamtools | analyzing and processing BAM files | Barnett DW, Garrison EK, Quinlan AR, Strömberg MP, Marth GT. BamTools: a C++ API and toolkit for analyzing and managing BAM files. Bioinformatics. 2011;27: 1691–1692.
 FeatureCounts | obtain raw transcriptome counts| Liao Y, Smyth GK, Shi W. featureCounts: an efficient general purpose program for assigning sequence reads to genomic features. Bioinformatics. 2014;30: 923–930.
 Limma/voom | differenital expression analysis | Law CW, Chen Y, Shi W, Smyth GK. voom: Precision weights unlock linear model analysis tools for RNA-seq read counts. Genome Biol. 2014;15: R29.
-GATK | | 
-Picard toolkit | | 
+GATK | variant calling and reference alternate maker | McKenna A, Hanna M, Banks E, et al. The Genome Analysis Toolkit: a MapReduce framework for analyzing next-generation DNA sequencing data. Genome Res. 2010;20(9):1297‐1303. doi:10.1101/gr.107524.110
+Picard toolkit | add read groups and mark duplicates | https://github.com/broadinstitute/picard
 
 
 ## Group Members
