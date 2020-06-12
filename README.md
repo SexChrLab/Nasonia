@@ -8,6 +8,9 @@ Parent and species of origin allele specific and differential expression analysi
   <img src="https://github.com/SexChrLab/Nasonia/blob/master/Plotting/Figure1.png" width="500"/>
 </p>
 
+Figure 1. A) A schematic illustration of the reciprocal F1 crosses. B) Overview of the data processing and analysis workflow.
+
+
 ## Preprint
 Please see our preprint for more information:
 
