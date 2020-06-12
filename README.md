@@ -40,11 +40,11 @@ The quality of the FASTQ files was assessed using FastQC and MultiQC. Reads were
 The Nasonia vitripennis reference genome and gene annotation file were downloaded from NCBI (https://www.ncbi.nlm.nih.gov/genome/449?genome_assembly_id=716919). FASTA index file and a sequence dictionary file must be present in the reference directory. These files can be produced with samtools and Picard:
 
 ```
-samtools faidx GCF_009193385.1_Nvit_psr_1_genomic.fa
+samtools faidx GCF_009193385.2_Nvit_psr_1_genomic.fa
 ```
 
 ```
-picard CreateSequenceDictionary R=GCF_009193385.1_Nvit_psr_1_genomic.fa O=GCF_009193385.1_Nvit_psr_1_genomic.dict
+picard CreateSequenceDictionary R=GCF_009193385.1_Nvit_psr_1_genomic.fa O=GCF_009193385.2_Nvit_psr_1_genomic.dict
 ```
 
 Trimmed reads were mapped to the reference with HISAT2. The HISAT2 index was created using the script build_hisat_index.sh. Gene level counts were quantified using featureCounts. To start the snakemake pipeline for read mapping and gene expression quantification, run run_mapping_quantification_snakemake.sh.
@@ -58,7 +58,9 @@ Read mapping and all downstream processing steps were repeated with the custom g
 
 ### 2. Fixed differences, pseudo N.giraulti reference genome
 
+We created a custom Nasonia giraulti reference genome by substituting sites with fixed allele differences between the two inbred species with the N. giraulti allele using GATK’s FastaAlternateReferenceMaker (McKenna et al. 2010). A site was considered to be fixed and different if it was homozygous for the N. vitripennis reference allele among all three of the biological VV samples and homozygous alternate among all three of the biological GG samples. All samples were aligned to both the N.vit and the pseudo N.gir reference genomes as described in step 1. 
 
+To make a pseudo N.giraulti reference genome you first need to have called variants when samples were aligned to the N.vit reference genome Step 1. Then you can run the script run_fixedDifferences.sh which will call a set of python scripts for identifying sits that are fixed and different between VV and GG. 
 
 
 
