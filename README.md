@@ -76,8 +76,15 @@ http://rpubs.com/olneykimberly/626815 or /Plotting/Nasonia_Wilson_data.pdf and /
 
 ### 4. Allele specific expression analysis
 
+For each sample, allele-specific expression (ASE) analysis was done on the reads aligned to the N. vitripennis reference, and on the reads aligned to the pseudo N. giraulti reference for comparison. Counts of reads covering biallelic heterozygous SNP sites were obtained with ASEReadCounter in GATK version 3.8 (Castel et al. 2015). Parameters ensuring adequate coverage (counts greater than 30) and filters for percent allelic bias were applied to investigate whether allele-specific expression occurs (Skelly et al. 2011). 
 
+ASE_AvgREFs.r
 
+<p align="center">
+  <img src="https://github.com/SexChrLab/Nasonia/blob/master/Plotting/Figure4.png" width="500"/>
+</p>
+
+Figure 4. Scatterplots of the expression of the N. vitripennis alleles in the two reciprocal hybrids, VG (x-axis) and GV (y-axis), in the Clark (A) and Wilson (B) datasets. Genes with at least two informative SNPs with a min depth of 30 were used (Clark = 6,377, Wilson  = 7,164). Genes exhibiting a significant difference in allelic bias between the hybrids (Fisher’s exact test, FDR-adj. p<0.01) are highlighted in red. Paternally imprinted genes are expected to appear in the upper left corner (light blue box), and maternally imprinted genes in the lower right corner (light pink box). Histograms of the N. vitripennis allele expression are shown for VG (blue) and GV (pink). 
 
 
 ### Publicly available tools used in this analysis
