@@ -113,19 +113,6 @@ half_sample_length <- SAMPLE_LENGTH / 2 # half the sample length
 pheno <-
   pheno[!pheno$sampleID %in% samplesToRemove[1:SAMPLE_LENGTH], ] # update 1:16 depending on size of samples to remove
 
-
-# define colors and shapes for the species
-viralPalette <- brewer.pal(8, "Set2")
-VV_Color <- viralPalette[1]
-GG_Color <- viralPalette[2]
-VG_Color <- viralPalette[3]
-GV_Color <- viralPalette[4]
-
-VV_Shape <- c(15)
-GG_Shape <- c(16)
-VG_Shape <- c(17)
-GV_Shape <- c(18)
-
 # Create the DGEList object using the counts and genes
 dge <- DGEList(counts = counts, genes = genes)
 dge$samples$strain <- pheno$Strain
