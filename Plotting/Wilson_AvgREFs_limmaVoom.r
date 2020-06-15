@@ -947,7 +947,7 @@ p <-
   theme_bw() +
   theme(legend.position = "none") +
   xlim(c(-15, 15)) + ylim(c(0, 12)) +
-  scale_color_manual(values = c("azure3", GV_Color, VG_Color)) +
+  scale_color_manual(values = c("azure3", VG_Color, GV_Color)) +
   labs(
     title = "VG vs GV",
     x = expression(log[2](FC)),
