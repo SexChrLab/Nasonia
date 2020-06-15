@@ -87,6 +87,7 @@ colnames = c(
   "SRR2773797",
   "SRR2773799"
 )
+# take the mean of the two referene genomes for each sample 
 counts <-
   sapply(colnames, function(x)
     rowMeans(DF [, grep(x, names(DF))]))
