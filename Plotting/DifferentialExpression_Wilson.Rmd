@@ -88,6 +88,7 @@ colnames = c(
   "X014454",
   "X014455"
 )
+# take the mean of the two referene genomes for each sample 
 counts <-
   sapply(colnames, function(x)
     rowMeans(DF [, grep(x, names(DF))]))
@@ -103,18 +104,6 @@ pheno <- read.table("wilson_pheno.csv", header = TRUE, sep = ",")
 # the pheno file contains information about the samples
 # sampleID,Strain
 head(pheno)
-
-# define colors and shapes for the species
-viralPalette <- brewer.pal(8, "Set2")
-VV_Color <- viralPalette[1]
-GG_Color <- viralPalette[2]
-VG_Color <- viralPalette[3]
-GV_Color <- viralPalette[4]
-
-VV_Shape <- c(15)
-GG_Shape <- c(16)
-VG_Shape <- c(17)
-GV_Shape <- c(18)
 
 # Create the DGEList object using the counts and genes
 dge <- DGEList(counts = counts, genes = genes)
