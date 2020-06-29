@@ -113,7 +113,7 @@ p1 <- ggplot(data = meanlogCPM, aes(x = WilsonGG, y = ClarkGG )) +
   theme( legend.position = "none") +
   theme_bw() +
   #xlim(c(-10, 10)) + ylim(c(0, 30)) ++
-  labs(x="Wilson GG average logCPM", y="Clark GG average logCPM") +
+  labs(x="Wilson GG mean logCPM", y="Clark GG mean logCPM") +
   theme(axis.title.x=element_text(size=12), 
         axis.text.x=element_text(size=10)) +
   theme(axis.title.y=element_text(size=12),
@@ -135,7 +135,7 @@ p2 <- ggplot(data = meanlogCPM, aes(x = WilsonVV, y = ClarkVV )) +
   theme( legend.position = "none") +
   theme_bw() +
   #xlim(c(-10, 10)) + ylim(c(0, 30)) ++
-  labs(x="Wilson VV average logCPM", y="Clark VV average logCPM") +
+  labs(x="Wilson VV mean logCPM", y="Clark VV mean logCPM") +
   theme(axis.title.x=element_text(size=12), 
         axis.text.x=element_text(size=10)) +
   theme(axis.title.y=element_text(size=12),
@@ -157,7 +157,7 @@ p3 <- ggplot(data = meanlogCPM, aes(x = WilsonGV, y = ClarkGV )) +
   theme( legend.position = "none") +
   theme_bw() +
   #xlim(c(-10, 10)) + ylim(c(0, 30)) ++
-  labs(x="Wilson GV average logCPM", y="Clark GV average logCPM") +
+  labs(x="Wilson GV mean logCPM", y="Clark GV mean logCPM") +
   theme(axis.title.x=element_text(size=12), 
         axis.text.x=element_text(size=10)) +
   theme(axis.title.y=element_text(size=12),
@@ -179,7 +179,7 @@ p4 <- ggplot(data = meanlogCPM, aes(x = WilsonVG, y = ClarkVG )) +
   theme( legend.position = "none") +
   theme_bw() +
   #xlim(c(-10, 10)) + ylim(c(0, 30)) ++
-  labs(x="Wilson VG average logCPM", y="Clark VG average logCPM") +
+  labs(x="Wilson VG mean logCPM", y="Clark VG mean logCPM") +
   theme(axis.title.x=element_text(size=12), 
         axis.text.x=element_text(size=10)) +
   theme(axis.title.y=element_text(size=12),
@@ -202,7 +202,7 @@ p5 <- ggplot(data = meanlogCPM, aes(x = WilsonVV, y = WilsonGG )) +
   theme( legend.position = "none") +
   theme_bw() +
   #xlim(c(-10, 10)) + ylim(c(0, 30)) ++
-  labs(x="Wilson VV average logCPM", y="Wilson GG average logCPM") +
+  labs(x="Wilson VV mean logCPM", y="Wilson GG mean logCPM") +
   theme(axis.title.x=element_text(size=12), 
         axis.text.x=element_text(size=10)) +
   theme(axis.title.y=element_text(size=12),
@@ -224,7 +224,7 @@ p6 <- ggplot(data = meanlogCPM, aes(x = ClarkVV, y = ClarkGG )) +
   theme( legend.position = "none") +
   theme_bw() +
   #xlim(c(-10, 10)) + ylim(c(0, 30)) ++
-  labs(x="Clark VV average logCPM", y="Clark GG average logCPM") +
+  labs(x="Clark VV mean logCPM", y="Clark GG mean logCPM") +
   theme(axis.title.x=element_text(size=12), 
         axis.text.x=element_text(size=10)) +
   theme(axis.title.y=element_text(size=12),
