@@ -1,7 +1,7 @@
 # ==============================================================================
 # Author(s) : Heini M Natri, heini.natri@gmail.com
-# Date: May 2020
-# Description: Plotting regression between Nasonia cross logCPM values
+# Date: June 2020
+# Description: Plotting regression between Nasonia datasets
 # ==============================================================================
 
 # Load libraries
@@ -29,16 +29,30 @@ GV_Shape <- c(12)
 # Reading data
 wilsonCounts <- read.table("wilson_counts.txt", sep = "\t", header=TRUE, check.names=FALSE)
 clarkCounts <- read.table("clark_counts.txt", sep = "\t", header=TRUE, check.names=FALSE)
+wilsonGirCounts <- read.table("wilson_counts_VgirRef.txt", sep = "\t", header=TRUE, check.names=FALSE)
+clarkGirCounts <- read.table("clark_counts_VgirRef.txt", sep = "\t", header=TRUE, check.names=FALSE)
+
+# Taking the mean between reference genomes
+clark_df <- data.frame(clarkCounts, clarkGirCounts)
+colnames = colnames(clarkCounts)
+clarkMeanCounts <- sapply(colnames, function(x) rowMeans(clark_df [, grep(x, names(clark_df))] )  )
+
+wilson_df <- data.frame(wilsonCounts, wilsonGirCounts)
+colnames = colnames(wilsonCounts)
+wilsonMeanCounts <- sapply(colnames, function(x) rowMeans(wilson_df [, grep(x, names(wilson_df))] )  )
+
+# Combining counts
 bothCounts <- merge(wilsonCounts, clarkCounts, by=0)
 bothCounts <- bothCounts[, !(colnames(bothCounts) == "Row.names")]
-colnames(bothCounts) <- gsub("\\/data\\/storage\\/SAYRES\\/NASONIA\\/Heini\\/Processing\\/Clark\\/RNA\\/processed_BAM\\/", "", colnames(bothCounts))
-colnames(bothCounts) <- gsub("\\/data\\/storage\\/SAYRES\\/NASONIA\\/Heini\\/Processing\\/Sayres\\/RNA\\/processed_BAM\\/", "", colnames(bothCounts))
-colnames(bothCounts) <- gsub("\\_sortedbycoord\\.bam", "", colnames(bothCounts))
 
 metadata <- read.csv("metadata.csv")
 metadata <- metadata[match(colnames(bothCounts),
                            metadata$SampleID),]
 metadata$Dataset_Cross <- paste(metadata$Dataset, metadata$Cross, sep="_")
+
+samplesToRemove <- c("SRR2773798") # update depending on comparison being made
+metadata <- metadata[!(metadata$SampleID %in% samplesToRemove),]
+bothCounts <- bothCounts[, !(colnames(bothCounts) %in% samplesToRemove)]
 
 # Importing gene annotations
 genes <- read.table("014451_featurecounts.tsv", header=TRUE, sep="\t")
@@ -60,32 +74,32 @@ dge <- DGEList(counts=bothCounts, genes=genes)
 colnames(dge) <- colnames(bothCounts)
 dge$samples$Dataset_Cross <- metadata$Dataset_Cross
 
-logcpm <- cpm(dge, log=TRUE)
-meanlogCPM <- data.frame(matrix(NA, nrow = length(rownames(logcpm)), ncol = 8))
+logCPM <- cpm(dge, log = T)
+meanlogCPM <- data.frame(matrix(NA, nrow = length(rownames(logCPM)), ncol = 8))
 colnames(meanlogCPM) <- c("WilsonVV", "WilsonGG", "WilsonVG", "WilsonGV", "ClarkVV", "ClarkGG", "ClarkVG", "ClarkGV")
 
-meanlogCPM$WilsonVV <- apply(as.data.frame(logcpm)
+meanlogCPM$WilsonVV <- apply(as.data.frame(logCPM)
                              [(dge$samples$Dataset_Cross=="Wilson_VV")],
                              1, mean, na.rm=TRUE)
-meanlogCPM$WilsonGG <- apply(as.data.frame(logcpm)
+meanlogCPM$WilsonGG <- apply(as.data.frame(logCPM)
                              [(dge$samples$Dataset_Cross=="Wilson_GG")],
                              1, mean, na.rm=TRUE)
-meanlogCPM$WilsonVG <- apply(as.data.frame(logcpm)
+meanlogCPM$WilsonVG <- apply(as.data.frame(logCPM)
                              [(dge$samples$Dataset_Cross=="Wilson_VG")],
                              1, mean, na.rm=TRUE)
-meanlogCPM$WilsonGV <- apply(as.data.frame(logcpm)
+meanlogCPM$WilsonGV <- apply(as.data.frame(logCPM)
                              [(dge$samples$Dataset_Cross=="Wilson_GV")],
                              1, mean, na.rm=TRUE)
-meanlogCPM$ClarkVV <- apply(as.data.frame(logcpm)
+meanlogCPM$ClarkVV <- apply(as.data.frame(logCPM)
                             [(dge$samples$Dataset_Cross=="Clark_VV")],
                             1, mean, na.rm=TRUE)
-meanlogCPM$ClarkGG <- apply(as.data.frame(logcpm)
+meanlogCPM$ClarkGG <- apply(as.data.frame(logCPM)
                             [(dge$samples$Dataset_Cross=="Clark_GG")],
                             1, mean, na.rm=TRUE)
-meanlogCPM$ClarkVG <- apply(as.data.frame(logcpm)
+meanlogCPM$ClarkVG <- apply(as.data.frame(logCPM)
                             [(dge$samples$Dataset_Cross=="Clark_VG")],
                             1, mean, na.rm=TRUE)
-meanlogCPM$ClarkGV <- apply(as.data.frame(logcpm)
+meanlogCPM$ClarkGV <- apply(as.data.frame(logCPM)
                             [(dge$samples$Dataset_Cross=="Clark_GV")],
                             1, mean, na.rm=TRUE)
 
@@ -226,4 +240,5 @@ p6
 ggsave("Clark_Sayres_regression.pdf", 
        grid.arrange(p1, p2, p3, p4, p5, p6, ncol=2, widths=c(3, 3)),
        width = 6, height = 9)
+
 
