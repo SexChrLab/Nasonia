@@ -3,7 +3,6 @@
 #SBATCH -o slurm.%j.out                # STDOUT (%j = JobId)
 #SBATCH -e slurm.%j.err                # STDERR (%j = JobId)
 #SBATCH --mail-type=END,FAIL           # notifications for job done & fail
-#SBATCH --mail-user=hnatri@asu.edu # send-to address
 #SBATCH -N 1
 #SBATCH -c 1
 #SBATCH -t 96:00:00
