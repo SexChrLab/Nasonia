@@ -1,7 +1,5 @@
 # ==============================================================================
-# Author(s) : Heini M Natri, heini.natri@gmail.com
-# Date: June 2020
-# Description: Plotting regression between Nasonia datasets
+# Plotting regression between Nasonia datasets
 # ==============================================================================
 
 # Load libraries
@@ -11,9 +9,10 @@ library(ggplot2)
 library(ggExtra)
 library(grid)
 library(gridExtra)
+library(ggtext)
 
 # Setting the working directory
-setwd("/Users/hnatri/Dropbox (ASU)/Nasonia/")
+setwd("/Users/hnatri/Dropbox (Personal)/Nasonia/")
 
 # Defining colors
 colorPalette <- brewer.pal(8, "Set2")
@@ -113,15 +112,15 @@ p1 <- ggplot(data = meanlogCPM, aes(x = WilsonGG, y = ClarkGG )) +
   theme( legend.position = "none") +
   theme_bw() +
   #xlim(c(-10, 10)) + ylim(c(0, 30)) ++
-  labs(x="Wilson GG mean logCPM", y="Clark GG mean logCPM") +
+  labs(x="Wilson GG", y="Clark GG") +
   theme(axis.title.x=element_text(size=12), 
         axis.text.x=element_text(size=10)) +
   theme(axis.title.y=element_text(size=12),
         axis.text.y=element_text(size=10)) +
   scale_x_continuous(breaks=c(-5,0,5,10,15), limits = c(-5, 15)) +
   scale_y_continuous(breaks=c(-5,0,5,10,15), limits = c(-5, 15)) +
-  geom_smooth(data = meanlogCPM, aes(x = WilsonGG, y = ClarkGG), method='lm',formula=y~x, color="black") +
-  annotate(geom="text", x=1, y=14, label=label, color="black")
+  geom_smooth(data = meanlogCPM, aes(x = WilsonGG, y = ClarkGG), method='lm',formula=y~x, color="black")
+  #annotate(geom="text", x=1, y=14, label=label, color="black")
 
 p1
 
@@ -135,15 +134,15 @@ p2 <- ggplot(data = meanlogCPM, aes(x = WilsonVV, y = ClarkVV )) +
   theme( legend.position = "none") +
   theme_bw() +
   #xlim(c(-10, 10)) + ylim(c(0, 30)) ++
-  labs(x="Wilson VV mean logCPM", y="Clark VV mean logCPM") +
+  labs(x="Wilson VV", y="Clark VV") +
   theme(axis.title.x=element_text(size=12), 
         axis.text.x=element_text(size=10)) +
   theme(axis.title.y=element_text(size=12),
         axis.text.y=element_text(size=10)) +
   scale_x_continuous(breaks=c(-5,0,5,10,15), limits = c(-5, 15)) +
   scale_y_continuous(breaks=c(-5,0,5,10,15), limits = c(-5, 15)) +
-  geom_smooth(data = meanlogCPM, aes(x = WilsonVV, y = ClarkVV), method='lm',formula=y~x, color="black") +
-  annotate(geom="text", x=1, y=14, label=label, color="black")
+  geom_smooth(data = meanlogCPM, aes(x = WilsonVV, y = ClarkVV), method='lm',formula=y~x, color="black")
+  #annotate(geom="text", x=1, y=14, label=label, color="black")
 
 p2
 
@@ -157,15 +156,15 @@ p3 <- ggplot(data = meanlogCPM, aes(x = WilsonGV, y = ClarkGV )) +
   theme( legend.position = "none") +
   theme_bw() +
   #xlim(c(-10, 10)) + ylim(c(0, 30)) ++
-  labs(x="Wilson GV mean logCPM", y="Clark GV mean logCPM") +
+  labs(x="Wilson GV", y="Clark GV") +
   theme(axis.title.x=element_text(size=12), 
         axis.text.x=element_text(size=10)) +
   theme(axis.title.y=element_text(size=12),
         axis.text.y=element_text(size=10)) +
   scale_x_continuous(breaks=c(-5,0,5,10,15), limits = c(-5, 15)) +
   scale_y_continuous(breaks=c(-5,0,5,10,15), limits = c(-5, 15)) +
-  geom_smooth(data = meanlogCPM, aes(x = WilsonGV, y = ClarkGV), method='lm',formula=y~x, color="black") +
-  annotate(geom="text", x=1, y=14, label=label, color="black")
+  geom_smooth(data = meanlogCPM, aes(x = WilsonGV, y = ClarkGV), method='lm',formula=y~x, color="black")
+  #annotate(geom="text", x=1, y=14, label=label, color="black")
 
 p3
 
@@ -179,15 +178,15 @@ p4 <- ggplot(data = meanlogCPM, aes(x = WilsonVG, y = ClarkVG )) +
   theme( legend.position = "none") +
   theme_bw() +
   #xlim(c(-10, 10)) + ylim(c(0, 30)) ++
-  labs(x="Wilson VG mean logCPM", y="Clark VG mean logCPM") +
+  labs(x="Wilson VG", y="Clark VG") +
   theme(axis.title.x=element_text(size=12), 
         axis.text.x=element_text(size=10)) +
   theme(axis.title.y=element_text(size=12),
         axis.text.y=element_text(size=10)) +
   scale_x_continuous(breaks=c(-5,0,5,10,15), limits = c(-5, 15)) +
   scale_y_continuous(breaks=c(-5,0,5,10,15), limits = c(-5, 15)) +
-  geom_smooth(data = meanlogCPM, aes(x = WilsonVG, y = ClarkVG), method='lm',formula=y~x, color="black") +
-  annotate(geom="text", x=1, y=14, label=label, color="black")
+  geom_smooth(data = meanlogCPM, aes(x = WilsonVG, y = ClarkVG), method='lm',formula=y~x, color="black")
+  #annotate(geom="text", x=1, y=14, label=label, color="black")
 
 p4
 
@@ -202,15 +201,15 @@ p5 <- ggplot(data = meanlogCPM, aes(x = WilsonVV, y = WilsonGG )) +
   theme( legend.position = "none") +
   theme_bw() +
   #xlim(c(-10, 10)) + ylim(c(0, 30)) ++
-  labs(x="Wilson VV mean logCPM", y="Wilson GG mean logCPM") +
+  labs(x="Wilson VV", y="Wilson GG") +
   theme(axis.title.x=element_text(size=12), 
         axis.text.x=element_text(size=10)) +
   theme(axis.title.y=element_text(size=12),
         axis.text.y=element_text(size=10)) +
   scale_x_continuous(breaks=c(-5,0,5,10,15), limits = c(-5, 15)) +
   scale_y_continuous(breaks=c(-5,0,5,10,15), limits = c(-5, 15)) +
-  geom_smooth(data = meanlogCPM, aes(x = WilsonVV, y = WilsonGG), method='lm',formula=y~x, color="black") +
-  annotate(geom="text", x=1, y=14, label=label, color="black")
+  geom_smooth(data = meanlogCPM, aes(x = WilsonVV, y = WilsonGG), method='lm',formula=y~x, color="black")
+  #annotate(geom="text", x=1, y=14, label=label, color="black")
 
 p5
 
@@ -224,21 +223,67 @@ p6 <- ggplot(data = meanlogCPM, aes(x = ClarkVV, y = ClarkGG )) +
   theme( legend.position = "none") +
   theme_bw() +
   #xlim(c(-10, 10)) + ylim(c(0, 30)) ++
-  labs(x="Clark VV mean logCPM", y="Clark GG mean logCPM") +
+  labs(x="Clark VV", y="Clark GG") +
   theme(axis.title.x=element_text(size=12), 
         axis.text.x=element_text(size=10)) +
   theme(axis.title.y=element_text(size=12),
         axis.text.y=element_text(size=10)) +
   scale_x_continuous(breaks=c(-5,0,5,10,15), limits = c(-5, 15)) +
   scale_y_continuous(breaks=c(-5,0,5,10,15), limits = c(-5, 15)) +
-  geom_smooth(data = meanlogCPM, aes(x = ClarkVV, y = ClarkGG), method='lm',formula=y~x, color="black") +
-  annotate(geom="text", x=1, y=14, label=label, color="black")
+  geom_smooth(data = meanlogCPM, aes(x = ClarkVV, y = ClarkGG), method='lm',formula=y~x, color="black")
+  #annotate(geom="text", x=1, y=14, label=label, color="black")
 
 p6
 
+
+# Between hybrids
+# Wilson VG and GV
+# Calculating R2
+p7_r2 <- cor(meanlogCPM$WilsonVG, meanlogCPM$WilsonGV,  method = "pearson", use = "complete.obs")
+label <- paste('R-squared', "=", format(round(p7_r2, 2), nsmall = 2), sep="")
+
+p7 <- ggplot(data = meanlogCPM, aes(x = WilsonVG, y = WilsonGV )) +
+  geom_point(alpha = 0.5, size = 4, color = "azure4") +
+  theme( legend.position = "none") +
+  theme_bw() +
+  #xlim(c(-10, 10)) + ylim(c(0, 30)) ++
+  labs(x="Wilson VG", y="Wilson GV") +
+  theme(axis.title.x=element_text(size=12), 
+        axis.text.x=element_text(size=10)) +
+  theme(axis.title.y=element_text(size=12),
+        axis.text.y=element_text(size=10)) +
+  scale_x_continuous(breaks=c(-5,0,5,10,15), limits = c(-5, 15)) +
+  scale_y_continuous(breaks=c(-5,0,5,10,15), limits = c(-5, 15)) +
+  geom_smooth(data = meanlogCPM, aes(x = WilsonVG, y = WilsonGV), method='lm',formula=y~x, color="black")
+  #annotate(geom="text", x=1, y=14, label=label, color="black")
+
+p7
+
+# Clark VG and GV
+# Calculating R2
+p8_r2 <- cor(meanlogCPM$ClarkVG, meanlogCPM$ClarkGV,  method = "pearson", use = "complete.obs")
+label <- paste('R-squared', "=", format(round(p8_r2, 2), nsmall = 2), sep="")
+
+p8 <- ggplot(data = meanlogCPM, aes(x = ClarkVG, y = ClarkGV )) +
+  geom_point(alpha = 0.5, size = 4, color = "azure4") +
+  theme(legend.position = "none") +
+  theme_bw() +
+  #xlim(c(-10, 10)) + ylim(c(0, 30)) ++
+  labs(x="Clark VG", y="Clark GV") +
+  theme(axis.title.x=element_text(size=12), 
+        axis.text.x=element_text(size=10)) +
+  theme(axis.title.y=element_text(size=12),
+        axis.text.y=element_text(size=10)) +
+  scale_x_continuous(breaks=c(-5,0,5,10,15), limits = c(-5, 15)) +
+  scale_y_continuous(breaks=c(-5,0,5,10,15), limits = c(-5, 15)) +
+  geom_smooth(data = meanlogCPM, aes(x = ClarkVG, y = ClarkGV), method='lm',formula=y~x, color="black")
+  #annotate(geom="text", x=1, y=14, label=label, color="black")
+
+p8
+
 # Saving to a file
 ggsave("Clark_Sayres_regression.pdf", 
-       grid.arrange(p1, p2, p3, p4, p5, p6, ncol=2, widths=c(3, 3)),
-       width = 6, height = 9)
+       grid.arrange(p1, p2, p3, p4, p5, p6, p7, p8, ncol=2, widths=c(3, 3)),
+       width = 6, height = 12)
 
 
