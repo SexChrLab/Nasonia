@@ -4,15 +4,16 @@ channels:
   - bioconda
   - conda-forge
   - cyclus
+  - conda-forge/label/broken
 dependencies:
-  - python=3.5.1
+  - python=3.6
   - samtools=1.4
-  - snakemake=3.11.0
+  - snakemake=3.11
   - pyyaml=3.11
-  - fastqc=0.11.
+  - fastqc=0.11
   - multiqc=1.0
   - trimmomatic=0.36
-  - hisat2=2.1.0
-  - subread=1.5.2
+  - hisat2=2.1
+  - subread=1.5
   - gatk4=4.0.3.0
-  - picard=2.18.1
+  - picard=2.18

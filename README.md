@@ -29,7 +29,13 @@ If you use Nasonia in a classroom or discuss/correct this work in a manuscript, 
 
 ### 1. Process data
 
-The Wilson and Clark data were processed on a HPC cluster using SLURM and snakemake. To create a conda environment with the tools used in data processing, install conda (e.g. Miniconda) and run "conda env create -f nasonia_environment.yaml".
+The Wilson and Clark data were processed on a HPC cluster using SLURM and snakemake. To create a conda environment with the tools used in data processing, install conda (e.g. Miniconda).
+Once conda is installed, you can create the nasonai environment. 
+
+```
+conda create --name nasonia_environment
+```
+ and run "conda env create -f nasonia_environment.yaml".
 
 ###### QC and read trimming with FastQC, MultiQC, and Trimmomatic
 
