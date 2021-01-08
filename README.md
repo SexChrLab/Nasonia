@@ -33,9 +33,27 @@ The Wilson and Clark data were processed on a HPC cluster using SLURM and snakem
 Once conda is installed, you can create the nasonai environment. 
 
 ```
-conda create --name nasonia_environment
+conda env create -f nasonia_environment_210108.yaml
 ```
- and run "conda env create -f nasonia_environment.yaml".
+
+```
+source activate nasonia_environment_210108
+```
+
+```
+conda install -c bioconda entrez-direct
+conda install parallel
+conda install -c bioconda sra-tools 
+```
+
+###### Download the raw fastq files
+Wildon data PRJNA613065
+Clark data PRJNA260391 & PRJNA299670
+
+```
+esearch -db sra -query PRJNA260391 | efetch -format runinfo > runinfo.csv
+
+
 
 ###### QC and read trimming with FastQC, MultiQC, and Trimmomatic
 
